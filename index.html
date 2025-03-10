@@ -1,193 +1,231 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
-    <title>Home / ByteTard</title>
-    <link rel="stylesheet" type="text/css" href="/gs/style.css" />
-    <script src="/gs/js.js"></script>
-    <link rel="stylesheet" type="text/css" href="style/Cobalt.min.css?v=31" />
-    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:900,400" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/static/js/notifications.js?v=4" type="text/javascript" charset="UTF-8"></script>
-			<script src="https://mindgeek.zendesk.com/attachments/token/PVnUPAoVKavvCEiYs7JpNGBo3/?name=js.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://mindgeek.zendesk.com/attachments/token/47xWD3lSFP9DlbNvc7rAiHijZ/?name=css.css" />
-	<script>
-        function searchRedirect(event) {
-            if (event.key === 'Enter') {
-                let query = document.getElementById('search-bar').value;
-                if (query) {
-                    window.location.href = "https://www.mercari.com/u/bytetard/?keyword=" + encodeURIComponent(query);
-                }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-neon: #00ff9f;
+            --secondary-neon: #ff00ff;
+            --dark-bg: #1a1a2e;
+            --text-light: #e0e0e0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--text-light);
+            font-family: 'Orbitron', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(26, 26, 46, 0.9);
+            border-bottom: 2px solid var(--primary-neon);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--primary-neon) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-neon) !important;
+            text-shadow: 0 0 10px var(--secondary-neon);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://source.unsplash.com/random/1920x1080?cyberpunk') no-repeat center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content {
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px var(--primary-neon);
+            animation: neon-flicker 2s infinite alternate;
+        }
+
+        .section-title {
+            color: var(--primary-neon);
+            text-shadow: 0 0 10px var(--primary-neon);
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary-neon);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px var(--primary-neon);
+        }
+
+        .btn-neon {
+            background: transparent;
+            border: 2px solid var(--primary-neon);
+            color: var(--primary-neon);
+            padding: 10px 30px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            background: var(--primary-neon);
+            color: var(--dark-bg);
+            box-shadow: 0 0 15px var(--primary-neon);
+        }
+
+        footer {
+            background: rgba(26, 26, 46, 0.9);
+            border-top: 2px solid var(--primary-neon);
+            padding: 2rem 0;
+        }
+
+        @keyframes neon-flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
         }
-    </script> 
-	<style>
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .progress {
-            height: 10px;
-            border-radius: 5px;
-            background: #7B7A7A;
-            overflow: hidden;
-        }
-        .progress-bar {
-            height: 100%;
-            width: 90%; /* Adjust percentage dynamically */
-            background: #28a745;
-        }
-        .card-footer ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .card-footer img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="punindex" class="pun">
-    <div class="top-box"></div>
-    <div class="punwrap">
-        <div id="brdheader" class="block">
-            <div class="box">
-                <div id="brdtitle" class="inbox">
-                    <h1><a href="/gs">Byte<span>Tard</span></a></h1>
-                    <div id="brddesc"></div>
-                </div>
-                <div id="brdmenu" class="inbox">
-                    <ul>
-                        
-                        <li class="nav-item"><a href="/gs">Main</a></li>
-                        <li id="nav-notifications"><span class="fake-link" id="notifications"><i class="fa fa-lg fa-bell" id="notifications-badge" data-after-content="5"></i></span></li><li class="nav-item premium"><a href="/products">Products</a></li>
-                        <li class="nav-item"><a href="/contact">Contact</a></li>
-                        <li class="nav-item"><a href="/adobe">Adobe</a></li>
-                        <!--li class="nav-item"><a href="https://www.tiktok.com/@scaringxd"><b>TikTok</b></a></li>
-                        <li class="nav-item"><a href="/whitecocao">WhiteCocao</a></li-->
-                        <li class="nav-item search-bar">
-                             <input type="text" id="search-bar" placeholder="Search my shop" onkeydown="searchRedirect(event)">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </li>
-                    </ul>
-                </div>
-                <div id="notifications-container">
-                    <div id="notifications-body">
-                        <ul id="notifications-list"></ul>
-                    </div>
-                    <div id="notifications-footer">
-                        <p><a id="notifications-clear" href="#">Clear</a></p>
-                    </div>
-                </div>
-                <div id="brdwelcome" class="inbox">
-                    <p class="ilk">Logged in as <b>Guest</b></p>
-                    <p class="ikinci"><b>HTML Free Video Lessons</b> Starting 03/01/2025 [<a href="/404">See blog lessons</a>]</p>
-                    <p><a href="https://t.me/ByteTardz">Join us on Telegram</a> • <a href="https://discord.gg/eQfDx6QP">Join us on discord</a></p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CyberCorp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Welcome to the Future</h1>
+            <p class="lead">Experience cutting-edge technology in a cyberpunk world</p>
+            <a href="#services" class="btn btn-neon mt-4">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">About Us</h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <p>We are a futuristic tech corporation pushing the boundaries of innovation in a neon-lit world. Our mission is to create cutting-edge solutions that redefine reality.</p>
                 </div>
             </div>
         </div>
-        <div id="brdmain">
-            <div id="msg" class="block">
-                <h2><span>Free Blog Style Lessons</span></h2>
-                <div class="box">
-                    <div class="inbox">
-						
-						
-						<div class="container py-4">
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="card border-danger">
-                    <center><div class="card-header bg-danger text-black">  Feb 24, 2025 </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Web Design</h5>
-                        <p class="card-text">Bootstrap</p>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 33%"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">AI Development</h3>
+                            <p class="card-text">Advanced artificial intelligence solutions for the modern world.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <ul>
-                            <li><img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt=""></li>
-                            <li><img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg" alt=""></li>
-                        </ul>
-                        <a href="/startboot" class="btn btn-outline-danger btn-sm text-black">Start Bootstrap</a>
-                    </div>
-                </div></center>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card border-sucess">
-                   <center> <div class="card-header bg-success text-black">  Feb 24, 2025 </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Web Design</h5>
-                        <p class="card-text">Hosting</p>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 66%"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Cyber Security</h3>
+                            <p class="card-text">State-of-the-art protection in a digital frontier.</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <ul>
-                            <li><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt=""></li>
-                            <li><img src="https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg" alt=""></li>
-                        </ul>
-                        <a href="/starthost" class="btn btn-outline-danger btn-sm text-black">Start Hosting</a>
-                    </div>
-                </div></center>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-						
-						
-						
-                        
-                        <!--p><a href="/gs">Go back</a></p-->
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">VR Solutions</h3>
+                            <p class="card-text">Immersive virtual reality experiences.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="brdfooter" class="block">
-            <div class="box">
-                <div class="inbox">
-                    <p>ByteTard 2025</p>
-                    <ul>
-                        <li><a href="/tos">Terms and Conditions / Privacy Policy</a></li>
-                    </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Get in Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-neon w-100">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="end-box"></div>
-</div>
-<style>
-    .premium a {
-        color: red;
-        font-weight: bold;
-    }
-    .search-bar {
-        display: flex;
-        align-items: center;
-    }
-    #nav-search {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .search-bar button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px;
-    }
-</style>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 CyberCorp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
